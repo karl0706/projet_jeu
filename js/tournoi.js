@@ -175,6 +175,13 @@ function renderTournament(tournoi, event) {
       winnerDiv.style = "margin-top:30px;text-align:center;font-size:1.4em;font-weight:700;color:#16a34a;";
       winnerDiv.innerHTML = `🏆 <span>Vainqueur : ${winner.membres.join(', ')}</span>`;
       tournamentTree.appendChild(winnerDiv);
+
+      // Animation confettis
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
     }
   }
 }

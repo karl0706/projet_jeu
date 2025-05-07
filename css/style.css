@@ -1,8 +1,15 @@
 body {
     font-family: 'Montserrat', Arial, sans-serif;
-    background: linear-gradient(135deg, #c2e9fb 0%, #fbc2eb 100%);
+    background: linear-gradient(135deg, #c2e9fb, #fbc2eb, #a1c4fd, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
     margin: 0;
     min-height: 100vh;
+  }
+  @keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
   }
   .container {
     max-width: 1200px;
@@ -192,9 +199,14 @@ body {
     }
   }
   @keyframes winner-pop {
-    0% { transform: scale(1); }
-    60% { transform: scale(1.08); }
-    100% { transform: scale(1); }
+    0% { background: #e2e8f0; transform: scale(1);}
+    60% { background: #facc15; transform: scale(1.08);}
+    100% { background: #e2e8f0; transform: scale(1);}
+  }
+  .match-winner {
+    animation: winner-pop 0.7s;
+    background: #facc15 !important;
+    color: #2563eb !important;
   }
   .back-link {
     display: inline-block;
@@ -210,4 +222,55 @@ body {
   .back-link:hover {
     background: #2563eb;
     color: #fff;
+  }
+  button, .back-link {
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  button:hover, .back-link:hover {
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 6px 24px rgba(37,99,235,0.15);
+  }
+  .equipe, .match {
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .equipe:hover, .match:hover {
+    box-shadow: 0 8px 32px rgba(37,99,235,0.13);
+    transform: translateY(-4px) scale(1.03);
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px);}
+    to   { opacity: 1; transform: translateY(0);}
+  }
+  .equipe, .match {
+    animation: fadeInUp 0.6s;
+  }
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.95);}
+    to   { opacity: 1; transform: scale(1);}
+  }
+  .welcome-container {
+    animation: popIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+  }
+  #show-create-form {
+    margin-bottom: 28px;
+  }
+  button, .welcome-container button {
+    margin-bottom: 28px;
+  }
+  #event-list {
+    margin-top: 12px;
+  }
+  #event-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  #event-list li {
+    list-style: none;
+    margin-bottom: 18px;
+    padding: 10px 0 8px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  #event-list li:last-child {
+    border-bottom: none;
   }

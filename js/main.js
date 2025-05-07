@@ -34,9 +34,11 @@ function getEvents() {
     }
     events.forEach(ev => {
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${ev.nom}</strong> (${ev.date})<br>
-        <span>${ev.description || ''}</span><br>
-        <a href="evenement.html?id=${ev.id}">Voir l'événement</a>`;
+      li.innerHTML = `
+        <div><strong>${ev.nom}</strong> (${ev.date})</div>
+        <div style="color:#555; margin-bottom:4px;">${ev.description || ''}</div>
+        <a href="evenement.html?id=${ev.id}" style="color:#2563eb;font-weight:600;">Voir cet événement</a>
+      `;
       list.appendChild(li);
     });
   }
