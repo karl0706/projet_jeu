@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tournois Fun - Accueil</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, #c2e9fb 0%, #fbc2eb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .welcome-container {
+      background: #fff;
+      border-radius: 30px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      padding: 48px 60px 48px 60px;
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+    .welcome-container h1 {
+      font-size: 2.5rem;
+      color: #2563eb;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .welcome-container p {
+      font-size: 1.2rem;
+      color: #222;
+      margin-bottom: 32px;
+    }
+    .welcome-container button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 16px 40px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+    .welcome-container button:hover {
+      background: #1e40af;
+    }
+    .emoji {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    /* Formulaire modal */
+    #create-event-form {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.25);
+      z-index: 10;
+      align-items: center;
+      justify-content: center;
+    }
+    #create-event-form .modal-content {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 24px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      text-align: left;
+    }
+    #create-event-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    #create-event-form input, #create-event-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      font-size: 1rem;
+      background: #f9fafb;
+    }
+    #create-event-form .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+  </style>
+  <!-- Firebase App (core) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <!-- Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="welcome-container">
+    <span class="emoji">🏆 🎉</span>
+    <h1>Bienvenue sur Tournois Fun !</h1>
+    <p>Crée tes événements et organise des tournois comme un pro !</p>
+    <button id="show-create-form">Créer un événement</button>
+    <div id="event-list"></div>
+  </div>
+
+  <!-- Modal de création d'événement -->
+  <div id="create-event-form">
+    <div class="modal-content">
+      <h2>Nouvel événement</h2>
+      <form id="event-form">
+        <label>Nom de l'événement :
+          <input type="text" id="event-name" required>
+        </label>
+        <label>Description :
+          <textarea id="event-desc" rows="2"></textarea>
+        </label>
+        <label>Date :
+          <input type="date" id="event-date" required>
+        </label>
+        <div class="actions">
+          <button type="button" id="cancel-create">Annuler</button>
+          <button type="submit">Créer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

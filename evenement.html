@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Événement - Tournois Fun</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Firebase App (core) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <!-- Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    <h1 id="event-title"></h1>
+    <p id="event-desc"></p>
+    <p id="event-date"></p>
+
+    <hr>
+
+    <section>
+      <h2>Créer les équipes</h2>
+      <form id="form-equipes" autocomplete="off">
+        <label for="participants">Liste des participants (un par ligne) :</label>
+        <textarea id="participants" rows="5" placeholder="Ex : Alice&#10;Bob&#10;Charlie" required></textarea>
+        <label for="nb-equipes">Nombre d'équipes :</label>
+        <input type="number" id="nb-equipes" min="2" max="50" value="2" required>
+        <button type="submit">Générer les équipes</button>
+      </form>
+      <div class="equipes" id="equipes"></div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Tournois</h2>
+      <button id="show-create-tournament">Créer un tournoi</button>
+      <div id="create-tournament-form" style="display:none;">
+        <form id="tournament-form">
+          <label>Nom du tournoi : <input type="text" id="tournament-name" required></label><br>
+          <label>Description : <input type="text" id="tournament-desc"></label><br>
+          <label>Date de début : <input type="date" id="tournament-date" required></label><br>
+          <button type="submit">Créer</button>
+          <button type="button" id="cancel-create-tournament">Annuler</button>
+        </form>
+      </div>
+      <ul id="tournament-list"></ul>
+    </section>
+  </div>
+  <script src="js/evenement.js"></script>
+</body>
+</html>
